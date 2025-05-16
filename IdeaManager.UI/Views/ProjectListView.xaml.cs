@@ -5,24 +5,23 @@ using IdeaManager.UI.ViewModels;
 
 namespace IdeaManager.UI.Views
 {
-    /// <summary>
-    /// Logique d'interaction pour IdeaFormView.xaml
-    /// </summary>
-    public partial class IdeaFormView : Page
+    public partial class ProjectListView : Page
     {
-        public IdeaFormView(IdeaFormViewModel viewModel)
+        private readonly ProjectListViewModel _viewModel;
+
+        public ProjectListView(ProjectListViewModel viewModel)
         {
             InitializeComponent();
-            DataContext = viewModel;
+            _viewModel = viewModel;
+            DataContext = _viewModel;
+
+            Loaded += async (_, __) => await _viewModel.LoadApprovedIdeasAsync();
         }
 
         private void OnBackClick(object sender, RoutedEventArgs e)
         {
             if (NavigationService?.CanGoBack == true)
-            {
                 NavigationService.GoBack();
-            }
         }
-
     }
 }
