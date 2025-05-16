@@ -21,11 +21,6 @@
                     Width="200" Height="40"
                     Margin="0 10"
                     Click="OnViewIdeasClick" />
-
-            <Button Content="Voir les projets"
-                    Width="200" Height="40"
-                    Margin="0 10"
-                    Click="OnViewProjectsClick" />
         </StackPanel>
     </Grid>
 </Page>

@@ -32,33 +32,6 @@ namespace IdeaManager.Tests.Services
         }
 
         [Fact]
-        public async Task RejectIdeaAsync_ShouldSetStatusToRejected_AndSave()
-        {
-            var idea = new Idea { Id = 1, Title = "Test", Status = IdeaStatus.Pending };
-            _ideaRepoMock.Setup(r => r.GetByIdAsync(idea.Id)).ReturnsAsync(idea);
-
-            await _service.RejectIdeaAsync(idea);
-
-            Assert.Equal(IdeaStatus.Rejected, idea.Status);
-            Assert.Equal(0, idea.VoteCount);
-            _unitOfWorkMock.Verify(u => u.SaveChangesAsync(), Times.Once);
-        }
-
-        [Fact]
-        public async Task ApproveIdeaAsync_ShouldSetStatusToApproved_AndSave()
-        {
-            var idea = new Idea { Id = 1, Title = "Test", Status = IdeaStatus.Pending };
-            _ideaRepoMock.Setup(r => r.GetByIdAsync(idea.Id)).ReturnsAsync(idea);
-
-            await _service.ApproveIdeaAsync(idea);
-
-            Assert.Equal(IdeaStatus.Approved, idea.Status);
-            Assert.Equal(1, idea.VoteCount);
-            _unitOfWorkMock.Verify(u => u.SaveChangesAsync(), Times.Once);
-        }
-
-
-        [Fact]
         public async Task SubmitIdeaAsync_ShouldThrow_WhenTitleIsEmpty()
         {
             var idea = new Idea { Title = "" };

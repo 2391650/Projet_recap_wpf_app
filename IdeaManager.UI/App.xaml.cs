@@ -15,14 +15,11 @@ public partial class App : Application
     {
         var services = new ServiceCollection();
 
-        var dbPath = @"C:\Users\Alex\Desktop\Projet_recap_wpf_app\IdeaManager.Data\ideas.db";
+        var dbPath = @"C:\Users\alexr\Desktop\session4\entreprise\Projet_recap_wpf_app\IdeaManager.Data\ideas.db";
 
         services.AddDataServices($"Data Source={dbPath}");
         services.AddDomainServices();
         services.AddUIServices();
-
-        services.AddTransient<ProjectListView>();
-        services.AddTransient<ProjectListViewModel>();
 
         ServiceProvider = services.BuildServiceProvider();
 

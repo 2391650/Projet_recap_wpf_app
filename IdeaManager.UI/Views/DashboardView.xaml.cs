@@ -36,19 +36,6 @@ namespace IdeaManager.UI.Views
             }
         }
 
-        private void OnViewProjectsClick(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                var projectListView = _serviceProvider.GetRequiredService<ProjectListView>();
-                NavigationService?.Navigate(projectListView);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Navigation vers les projets échouée : " + ex.Message);
-            }
-        }
-
 
     }
 }

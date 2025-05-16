@@ -20,7 +20,6 @@ namespace IdeaManager.UI
             services.AddTransient<DashboardViewModel>();
             services.AddTransient<IdeaFormViewModel>();
             services.AddTransient<IdeaListViewModel>();
-            services.AddTransient<ProjectListViewModel>();
 
             return services;
         }
